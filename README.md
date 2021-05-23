@@ -1,5 +1,4 @@
-# projects
-Table of Contents
+# Table of Contents
 
 matplotlib_ann_arbor_weather - analysis/graphing of temperature readings near Ann Arbor
 pandas_cdc_immunization_data_analysis - analysis of 2017 CDC immunization data
