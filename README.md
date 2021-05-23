@@ -1,5 +1,5 @@
 # Table of Contents
 
-matplotlib_ann_arbor_weather - analysis/graphing of temperature readings near Ann Arbor
+matplotlib_ann_arbor_weather - analysis/graphing of temperature readings near Ann Arbor /n
 pandas_cdc_immunization_data_analysis - analysis of 2017 CDC immunization data
 pandas_energy_GDP_ranking_analysis - data cleaning/joining/modeling using UN and World Bank data
