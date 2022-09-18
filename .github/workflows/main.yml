@@ -40,5 +40,5 @@ jobs:
           context: .
           push: true
           tags: |
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
           labels: ${{ steps.meta.outputs.labels }}
