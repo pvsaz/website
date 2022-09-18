@@ -3,7 +3,7 @@
 Built with:
 - Backend in Flask and SQLAlchemy
 - Frontend in Bootstrap CSS/HTML
-- CI/CD pipeline between Github Actions and Docker
+- CI/CD pipeline between Github and Docker using Github Actions
 - Running in prod with AWS Elastic Beanstalk
 \
 \
