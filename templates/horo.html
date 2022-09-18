@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+
+{% block body %}
+    <small>Choose your star sign to see today's horoscope and your lucky Pokémon, which is the Pokémon whose Pokédex ID is your lucky number from your horoscope.</small>
+    <br><br>
+    <form action = '/pokemon/sign' method='POST'>
+	<label for="star_sign">Star sign:</label>
+    <select id="star_sign" name="star_sign">
+        <option value="capricorn">Capricorn</option>
+        <option value="aquarius">Aquarius</option>
+        <option value="pisces">Pisces</option>
+        <option value="aries">Aries</option>
+        <option value="cancer">Cancer</option>
+        <option value="leo">Leo</option>
+        <option value="virgo">Virgo</option>
+        <option value="libra">Libra</option>
+        <option value="taurus">Taurus</option>
+        <option value="gemini">Gemini</option>
+        <option value="scorpio">Scorpio</option>
+        <option value="sagittarius">Sagittarius</option>
+      </select>
+        <br><br>
+        <input type='submit' value='See horoscope and lucky Pokémon!'>
+    </form>
+{% endblock %}

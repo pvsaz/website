@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+
+{% block body %}
+<h6>You entered the following sign: {{ sign }}</h6><br><br>
+
+<small>Your horoscope today is: {{ horoscope }}</small>
+<br><br>
+
+<small>Today, the lucky Pokémon of {{sign}} is {{ poke }}</small>
+<img src = {{ pic }} alt="alternatetext">
+
+{% endblock %}
