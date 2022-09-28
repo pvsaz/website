@@ -41,11 +41,11 @@ def load_user(user_id):
     return account_views.User.query.get(int(user_id))
 
 
-# blueprint registration of modular files
+# blueprint registration of view files
 app.register_blueprint(account_views.account_management, url_prefix="")
 app.register_blueprint(horoscope_views.pokemon_horoscope, url_prefix="")
 app.register_blueprint(blog_views.blog, url_prefix="")
 
 # run app
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5001)))
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
