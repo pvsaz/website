@@ -9,7 +9,7 @@ class BlogPost(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    email = db.Column(db.String(100), unique=False)
+    username = db.Column(db.String(100), unique=False)
 
 
 blog = Blueprint("blog", __name__, template_folder="templates", static_folder="static")
@@ -21,8 +21,8 @@ def posts():
     if request.method == "POST":
         post_title = request.form["title"]
         post_content = request.form["content"]
-        post_username = current_user.email
-        new_post = BlogPost(title=post_title, content=post_content, email=post_username)
+        post_username = current_user.username
+        new_post = BlogPost(title=post_title, content=post_content, username=post_username)
         db.session.add(new_post)
         db.session.commit()
         return redirect("/posts")

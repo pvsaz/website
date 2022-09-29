@@ -17,7 +17,7 @@ from flask import (
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True)
+    username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
 
     def __repr__(self):
@@ -31,17 +31,17 @@ account_management = Blueprint(
 
 @account_management.route("/signup", methods=["POST"])
 def signup_post():
-    email = request.form.get("email")
+    username = request.form.get("username")
     password = request.form.get("password")
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(username=username).first()
     if user:
-        flash("Email address already exists, please login under Your Account.")
+        flash("Username already exists, please login under Your Account.")
         return redirect(url_for("account_management.signup"))
-    if email == "" or password == "":
-        flash("Please enter both an email address and a password.")
+    if username == "" or password == "":
+        flash("Please enter both a username and a password.")
         return redirect(url_for("account_management.signup"))
     new_user = User(
-        email=email, password=generate_password_hash(password, method="sha256")
+        username=username, password=generate_password_hash(password, method="sha256")
     )
 
     db.session.add(new_user)
@@ -57,24 +57,24 @@ def profile():
             request.form.get("submit_button")
             == "Delete account and all associated posts"
         ):
-            posts = BlogPost.query.filter(BlogPost.email == current_user.email).all()
+            posts = BlogPost.query.filter(BlogPost.username == current_user.username).all()
             if posts:
                 for post in posts:
                     db.session.delete(post)
-            account = User.query.filter(User.email == current_user.email).first()
+            account = User.query.filter(User.username == current_user.username).first()
             db.session.delete(account)
             db.session.commit()
             return redirect("/")
     else:
-        return render_template("profile.html", email=current_user.email)
+        return render_template("profile.html", username=current_user.username)
 
 
 @account_management.route("/login", methods=["POST"])
 def login_post():
-    email = request.form.get("email")
+    username = request.form.get("username")
     password = request.form.get("password")
     remember = True if request.form.get("remember") else False
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(username=username).first()
 
     if not user or not check_password_hash(user.password, password):
         flash("Please check your login details and try again.")

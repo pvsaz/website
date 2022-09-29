@@ -24,11 +24,11 @@
 
 <h4>{{ post.title }}</h4>
 
-<small>By: {{post.email}} at {{post.date_posted}} UTC</small>
+<small>By: {{post.username}} at {{post.date_posted}} UTC</small>
 <br><br>
 
 <p style="white-space:pre-wrap">{{ post.content }}</p>
-{% if post.email == current_user.email %}
+{% if post.username == current_user.username %}
 <a class="btn btn-danger" href='/posts/delete/{{post.id}}'>Delete</a>
 <a class="btn btn-primary" href='/posts/edit/{{post.id}}'>Edit</a>
 {% endif %}
