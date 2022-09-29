@@ -40,12 +40,20 @@ def signup_post():
     if username == "" or password == "":
         flash("Please enter both a username and a password.")
         return redirect(url_for("account_management.signup"))
+    if len(username) > 100:
+        flash("Username too long. Limit is 100 characters.")
+        return redirect(url_for("account_management.signup"))
+    if len(password) > 10:
+        flash("Password too long. Limit is 10 characters.")
+        return redirect(url_for("account_management.signup"))
     new_user = User(
         username=username, password=generate_password_hash(password, method="sha256")
     )
 
     db.session.add(new_user)
     db.session.commit()
+    user = User.query.filter_by(username=username).first()
+    login_user(user, remember=False)
     return redirect(url_for("account_management.profile"))
 
 
@@ -57,7 +65,9 @@ def profile():
             request.form.get("submit_button")
             == "Delete account and all associated posts"
         ):
-            posts = BlogPost.query.filter(BlogPost.username == current_user.username).all()
+            posts = BlogPost.query.filter(
+                BlogPost.username == current_user.username
+            ).all()
             if posts:
                 for post in posts:
                     db.session.delete(post)

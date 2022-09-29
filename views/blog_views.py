@@ -22,7 +22,9 @@ def posts():
         post_title = request.form["title"]
         post_content = request.form["content"]
         post_username = current_user.username
-        new_post = BlogPost(title=post_title, content=post_content, username=post_username)
+        new_post = BlogPost(
+            title=post_title, content=post_content, username=post_username
+        )
         db.session.add(new_post)
         db.session.commit()
         return redirect("/posts")

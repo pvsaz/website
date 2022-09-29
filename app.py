@@ -24,6 +24,7 @@ app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["SQLALCHEMY_DATABASE_URI"]
 db.init_app(app)
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
