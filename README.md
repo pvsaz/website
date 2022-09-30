@@ -16,5 +16,5 @@ One section of the website is a blogging app with full CRUD capabilities and acc
 \
 \
 The other section of the website (Pokémon-Horoscope Fun!) arose from an idea to chain public APIs ([aztro API](https://aztro.sameerkumar.website/) and [PokéAPI](https://pokeapi.co/)) in a custom class and store the information together in an object.
-### Code Explanation
+### Code Overview
 The main script that initializes and runs the website is app.py. /static and /templates house CSS and HTML files. I use Flask's blueprints feature to separate the views from app.py and store them in a package in /views. The custom class used in the horoscope feature lives in horoscope.py. Lastly, database.py is used to detach the database object from app.py so it can be used both in /views and app.py without circular imports.
