@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 # copy all the files to the container
 COPY . .
-ENV PORT 5000
+
 # install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
