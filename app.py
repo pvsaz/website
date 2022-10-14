@@ -46,8 +46,6 @@ app.register_blueprint(account_views.account_management, url_prefix="")
 app.register_blueprint(horoscope_views.pokemon_horoscope, url_prefix="")
 app.register_blueprint(blog_views.blog, url_prefix="")
 
-# run app
+# run app using env vars for port and host for script portability
 if __name__ == "__main__":
-    app.run()
-
-#host="0.0.0.0", port=int(os.environ.get("PORT", 5000))
+    app.run(host=os.environ["HOST"], port=int(os.environ["PORT"]))
