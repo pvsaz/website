@@ -16,11 +16,11 @@ class Horoscope:
         self.lucky_poke_pic_url = self.get_poke_img_url()
 
     def get_horoscope(self):
-        description=df.loc[df['sign'] == self.sign, "description"].tolist()
+        description=df["description"].tolist()
         return random.choice(description)
 
     def get_lucky_number(self):
-        lucky_numbers = df.loc[df['sign'] == self.sign, "lucky_number"].tolist()
+        lucky_numbers = df["lucky_number"].tolist()
         lucky_number = random.choice(lucky_numbers)
         if (
             lucky_number > 890
