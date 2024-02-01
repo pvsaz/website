@@ -47,7 +47,7 @@ def signup_post():
         flash("Password too long. Limit is 10 characters.")
         return redirect(url_for("account_management.signup"))
     new_user = User(
-        username=username, password=generate_password_hash(password, method="sha256")
+        username=username, password=generate_password_hash(password, method="pbkdf2:sha256")
     )
 
     db.session.add(new_user)
