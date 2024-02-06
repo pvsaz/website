@@ -1,5 +1,5 @@
 # Purna Shah's Portfolio 
-## Running at [shah.codes](http://shah.codes)
+## Running at [pvsaz.ca-central-1.elasticbeanstalk.com](http://pvsaz.ca-central-1.elasticbeanstalk.com)
 ### Introduction
 Built with:
 - Backend in Flask and SQLAlchemy
